@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+<style>
+/* styles.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 2px solid #000;
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+}
+
+.square.light {
+    background-color: #f0d9b5;
+}
+
+.square.dark {
+    background-color: #b58863;
+}
+</style>
+<body>
+    <div id="chessboard"></div>
+    <script>
+// script.js
+const chessboard = document.getElementById('chessboard');
+
+const pieces = [
+    '♜', '♞', '♝', '♛', '♚', '♝', '♞', '♜',
+    '♟', '♟', '♟', '♟', '♟', '♟', '♟', '♟',
+    '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '',
+    '', '', '', '', '', '', '', '',
+    '♙', '♙', '♙', '♙', '♙', '♙', '♙', '♙',
+    '♖', '♘', '♗', '♕', '♔', '♗', '♘', '♖'
+];
+
+function createChessboard() {
+    for (let i = 0; i < 64; i++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.classList.add((i + Math.floor(i / 8)) % 2 === 0 ? 'light' : 'dark');
+        square.textContent = pieces[i];
+        chessboard.appendChild(square);
+    }
+}
+
+createChessboard();
+    </script>
+</body>
+</html>
