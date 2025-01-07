@@ -20,7 +20,7 @@ Installation
 
 Clone the repository:
 
-git clone 
+git clone https://github.com/its-anamika-anand/Chess.git
 
 Navigate to the project directory:
 
